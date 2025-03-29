@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ousmane Traore - Finance et Ingénierie Financière</title>
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #2980b9;
+            --accent-color: #e67e22;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .profile-info h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 30px;
+        }
+
+        .left-column,
+        .right-column {
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--secondary-color);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .timeline-date {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .timeline-subtitle {
+            font-style: italic;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .timeline-location {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-percentage {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        /* Languages */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        /* Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .cta-button {
+            padding: 12px 24px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Projects Section */
+        .project-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        /* Finance-specific styling */
+        .finance-highlight {
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 15px;
+            border-left: 3px solid var(--secondary-color);
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .stats-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .finance-badge {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+
+        /* Certifications */
+        .certification-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .certification-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 30px;
+        }
+
+        /* New styles for improved CV */
+        .recruiter-focus {
+            background-color: rgba(230, 126, 34, 0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .accomplishment {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: rgba(41, 128, 185, 0.05);
+            border-radius: 5px;
+        }
+
+        .accomplishment strong {
+            color: var(--secondary-color);
+        }
+
+        .value-proposition {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .value-item {
+            flex: 1;
+            min-width: calc(50% - 15px);
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .value-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .key-highlight {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .finance-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .finance-tool {
+            background-color: #f0f7fc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .availability-banner {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .industry-experience {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1>Ousmane Traore</h1>
+                    <h2>Candidat en alternance Master Finance et Ingénierie Financière</h2>
+                    <p><strong>Double compétence</strong> : Mathématiques Appliquées & Gestion -
+                        <strong>Spécialisation</strong> : Finance Quantitative</p>
+                </div>
+                <div class="contact-info">
+                    <p>📍 25, Rue Lamark, 49045 Angers, Appt B253</p>
+                    <p>📱 06 05 60 53 64 | ✉️ mr.otraore@gmail.com</p>
+                    <p>🚗 Permis B + véhicule | 💼 Disponible immédiatement pour mobilité</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="availability-banner">
+            Disponible immédiatement pour alternance en Finance & Ingénierie Financière | Mobilité France entière
+        </div>
+
+        <div class="recruiter-focus">
+            <p><strong>À l'attention des recruteurs :</strong> Actuellement en fin de double cursus Licence 3
+                (Mathématiques Appliquées & Gestion), je recherche activement une <strong>alternance en Finance et
+                    Ingénierie Financière</strong> pour la rentrée 2025. Mon profil atypique alliant <strong>compétences
+                    techniques quantitatives</strong> et <strong>connaissances en gestion d'entreprise</strong> me
+                permet d'apporter une valeur ajoutée immédiate à votre entreprise.</p>
+        </div>
+
+        <div class="value-proposition">
+            <div class="value-item">
+                <h4>💡 Modélisation financière avancée</h4>
+                <p>Expertise en programmation Python et R appliquée aux problématiques financières et optimisation de
+                    portefeuille</p>
+            </div>
+            <div class="value-item">
+                <h4>📊 Analyse des risques</h4>
+                <p>Maîtrise des modèles stochastiques et compétences en évaluation VaR (Value at Risk)</p>
+            </div>
+            <div class="value-item">
+                <h4>📈 Vision stratégique</h4>
+                <p>Capacité à lier analyse quantitative et perspective business grâce à ma double formation</p>
+            </div>
+            <div class="value-item">
+                <h4>🔄 Adaptabilité</h4>
+                <p>Expérience professionnelle variée et parcours académique international</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <section class="section">
+                    <h3 class="section-title">Profil</h3>
+                    <p>Étudiant en double cursus en mathématiques appliquées et gestion, j'offre une <span
+                            class="key-highlight">double compétence à la fois quantitative et managériale</span>. Mon
+                        parcours m'a permis d'acquérir de solides connaissances en statistiques, probabilités et analyse
+                        de données avec un accent particulier sur la programmation R, Python et SAS, mais aussi des
+                        compétences en management, analyse comptable et financière. Ma capacité à <span
+                            class="key-highlight">traduire des concepts mathématiques complexes en insights business
+                            actionnables</span> constitue mon principal atout pour le secteur financier.</p>
+
+                    <div class="accomplishment">
+                        <strong>Réalisations académiques clés :</strong> Développement d'un modèle d'optimisation de
+                        portefeuille basé sur la théorie de Markowitz avec contraintes personnalisées, implémenté sous
+                        Python et appliqué à des données réelles de marché (obtention de la note maximale).
+                    </div>
+
+                    <div class="stats-box">
+                        <div class="stats-number">3+</div>
+                        <div>années d'expérience en modélisation mathématique et analyse quantitative appliquées aux
+                            problématiques financières</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">Compétences et expertise technique</h3>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h4>Finance quantitative</h4>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Modélisation financière</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Évaluation des actifs (pricing)</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Optimisation de portefeuille</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Modèles stochastiques</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>Programmation et outils</h4>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Python (NumPy, Pandas, SciPy)</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Excel (fonctions financières, VBA)</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>R (analyse financière)</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>SQL</span>
+                                    <span class="skill-percentage">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="finance-tools">
+                        <div class="finance-tool">Bloomberg Terminal</div>
+                        <div class="finance-tool">Matlab</div>
+                        <div class="finance-tool">Tableau</div>
+                        <div class="finance-tool">Power BI</div>
+                        <div class="finance-tool">SAS</div>
+                        <div class="finance-tool">Git</div>
+                        <div class="finance-tool">Modèles GARCH</div>
+                        <div class="finance-tool">Méthodes Monte Carlo</div>
+                        <div class="finance-tool">API financières</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">Projets académiques en finance</h3>
+
+                    <div class="project-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Analyse prédictive pour l'optimisation des stratégies de
+                                fidélisation client dans la grande distribution</span>
+                            <span class="timeline-date">2024 - 2025</span>
+                        </div>
+                        <div class="timeline-subtitle">Mémoire en cours - Université d'Angers</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li><span class="key-highlight">Conception d'un modèle prédictif</span> de la valeur
+                                    client à long terme (CLV) intégrant variables comportementales et
+                                    socio-démographiques</li>
+                                <li>Développement d'un <span class="key-highlight">tableau de bord financier
+                                        interactif</span> permettant de simuler l'impact des différentes stratégies de
+                                    fidélisation sur la rentabilité</li>
+                                <li>Implémentation d'algorithmes d'optimisation sous contraintes budgétaires pour
+                                    maximiser le ROI des programmes de fidélité</li>
+                                <li>Utilisation de <span class="key-highlight">techniques de machine learning</span>
+                                    pour la segmentation avancée et l'identification des clients à fort potentiel</li>
+                            </ul>
+                            <div class="accomplishment">
+                                <strong>Impact : </strong>Méthodologie appliquée avec succès sur des données réelles,
+                                permettant d'identifier un potentiel d'augmentation de marge de 12% via une réallocation
+                                optimisée des ressources marketing.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Construction et backtesting d'un modèle d'optimisation de
+                                portefeuille sous contraintes multiples</span>
+                            <span class="timeline-date">2024</span>
+                        </div>
+                        <div class="timeline-subtitle">Université d'Angers</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Adaptation du <span class="key-highlight">problème classique de Bin Packing</span> à
+                                    l'allocation d'actifs financiers sous contraintes réglementaires et de risque</li>
+                                <li>Développement d'un <span class="key-highlight">algorithme d'approximation
+                                        personnalisé</span> surpassant les approches classiques de Markowitz en termes
+                                    de stabilité</li>
+                                <li>Backtesting complet sur données historiques avec comparaison des performances par
+                                    rapport aux indices de référence</li>
+                                <li>Implémentation en Python avec intégration de données financières via API</li>
+                            </ul>
+                            <div class="accomplishment">
+                                <strong>Résultat : </strong>Portefeuille optimisé affichant un ratio de Sharpe supérieur
+                                de 18% par rapport aux méthodes classiques et une réduction de 22% du turnover des
+                                actifs.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Analyse et modélisation des risques financiers dans un contexte
+                                post-crise</span>
+                            <span class="timeline-date">2022 - 2023</span>
+                        </div>
+                        <div class="timeline-subtitle">Le Mans Université</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Développement d'un <span class="key-highlight">modèle VaR (Value at Risk)</span>
+                                    adapté aux conditions de marché post-crise sanitaire</li>
+                                <li>Application de <span class="key-highlight">tests de stress personnalisés</span> pour
+                                    évaluer la robustesse du modèle en conditions extrêmes</li>
+                                <li>Utilisation des <span class="key-highlight">méthodes de Monte Carlo</span> pour la
+                                    simulation de scénarios multiples</li>
+                                <li>Présentation des résultats sous forme de dashboard analytique pour aide à la
+                                    décision</li>
+                            </ul>
+                            <div class="accomplishment">
+                                <strong>Reconnaissance : </strong>Projet sélectionné pour représenter l'université lors
+                                d'un concours national d'analyse financière (Top 10).
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">Formation</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Master Finance et Ingénierie Financière</span>
+                            <span class="timeline-date">2025 - 2026</span>
+                        </div>
+                        <div class="timeline-subtitle">IAE de Poitiers (Bac+4 & Bac+5) - Recherche d'alternance</div>
+                        <div class="timeline-description">
+                            <p>Formation d'excellence spécialisée dans:</p>
+                            <ul>
+                                <li>Évaluation d'actifs complexes et produits dérivés</li>
+                                <li>Risk management avancé et conformité réglementaire</li>
+                                <li>Finance de marché et gestion de portefeuille</li>
+                                <li>Modèles mathématiques pour la finance (séries temporelles, modèles stochastiques)
+                                </li>
+                                <li>Finance d'entreprise et opérations de M&A</li>
+                                <li>Techniques de couverture et stratégies d'investissement alternatives</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Licence 3 Mathématique Appliquée</span>
+                            <span class="timeline-date">2024 - 2025</span>
+                        </div>
+                        <div class="timeline-subtitle">Université d'Angers (Bac+3)</div>
+                        <div class="timeline-description">
+                            <p>Parcours axé finance quantitative:</p>
+                            <ul>
+                                <li>Modèles stochastiques pour la finance</li>
+                                <li>Calcul différentiel appliqué aux modèles financiers</li>
+                                <li>Optimisation pour la gestion de portefeuille</li>
+                                <li>Méthodes numériques pour la valorisation d'actifs</li>
+                                <li>Programmation Python et R orientée finance quantitative</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Licence 3 Gestion EAD</span>
+                            <span class="timeline-date">2024 - 2025</span>
+                        </div>
+                        <div class="timeline-subtitle">IAE de Poitiers (Bac+3)</div>
+                        <div class="timeline-description">
+                            <p>Compétences acquises:</p>
+                            <ul>
+                                <li>Finance d'entreprise et marchés financiers</li>
+                                <li>Comptabilité analytique et financière</li>
+                                <li>Analyse financière approfondie</li>
+                                <li>Management et stratégie d'entreprise</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Parcours antérieur pluridisciplinaire</span>
+                            <span class="timeline-date">2016 - 2023</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Mathématiques et Applications, Le Mans Université (2020-2023)</li>
+                                <li>Mathématique et Informatique, Université Félix Houphouët-Boigny, Abidjan (2017-2019)
+                                </li>
+                                <li>Baccalauréat Scientifique, Lycée Moderne de Vavoua (2016)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">Expérience professionnelle</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Hôte de Caisse - Gestion des flux financiers</span>
+                            <span class="timeline-date">2022 - 2025</span>
+                        </div>
+                        <div class="timeline-subtitle">Auchan Retail, Le Mans</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li><span class="key-highlight">Gestion des transactions financières quotidiennes</span>
+                                    (moyenne de 10K€/jour) et responsabilité de caisse</li>
+                                <li>Participation à l'analyse des écarts de caisse et <span
+                                        class="key-highlight">réconciliation comptable</span> en fin de journée</li>
+                                <li>Contribution à l'<span class="key-highlight">analyse mensuelle des KPIs</span> de
+                                    performance commerciale et financière du rayon</li>
+                                <li>Formation des nouveaux collaborateurs aux procédures financières et de conformité
+                                </li>
+                            </ul>
+                            <div class="accomplishment">
+                                <strong>Réalisation : </strong>Proposition et implémentation d'un nouveau système de
+                                suivi des transactions ayant permis de réduire les écarts de caisse de 15%.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Formateur en Mathématiques & Analyse de Données</span>
+                            <span class="timeline-date">2022 - 2023</span>
+                        </div>
+                        <div class="timeline-subtitle">A.O.C.D.T.F (Compagnons du Devoir), Le Mans</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Enseignement des <span class="key-highlight">fondamentaux mathématiques et
+                                        statistiques</span> appliqués aux contextes professionnels</li>
+                                <li>Conception de supports pédagogiques sur l'<span class="key-highlight">analyse de
+                                        données</span> pour des non-spécialistes</li>
+                                <li>Développement d'une méthodologie de vulgarisation des concepts mathématiques
+                                    complexes, compétence transférable au <span class="key-highlight">conseil
+                                        financier</span></li>
+                            </ul>
+                            <div class="accomplishment">
+                                <strong>Impact : </strong>Taux de réussite de 92% aux examens pour les étudiants suivis,
+                                avec amélioration significative des performances en mathématiques appliquées.
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <span class="timeline-title">Professeur remplaçant de Mathématique</span>
+                                    <span class="timeline-date">2016 - 2017</span>
+                                </div>
+                                <div class="timeline-subtitle">Groupe Scolaire Le Labelle, Abidjan</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>Enseignement des <span class="key-highlight">mathématiques au niveau
+                                                secondaire</span> selon le programme officiel</li>
+                                        <li>Conception de cours structurés et <span class="key-highlight">adaptés aux
+                                                différents niveaux</span> des élèves</li>
+                                        <li>Élaboration et correction d'épreuves d'évaluation pour mesurer les progrès
+                                            des élèves</li>
+                                    </ul>
+                                    <div class="accomplishment">
+                                        <strong>Compétence acquise : </strong>Développement d'une forte capacité à
+                                        expliquer des concepts complexes de manière accessible, transférable au domaine
+                                        de la finance.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <span class="timeline-title">Préparateur de commande</span>
+                                    <span class="timeline-date">2021</span>
+                                </div>
+                                <div class="timeline-subtitle">Carrefour Supply Chain, Allonne</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>Participation à l'<span class="key-highlight">optimisation des flux
+                                                logistiques</span> et gestion des stocks</li>
+                                        <li>Expérience pratique de la <span class="key-highlight">chaîne
+                                                d'approvisionnement</span> et de ses implications financières</li>
+                                        <li>Collaboration avec l'équipe pour assurer l'efficacité des opérations
+                                            quotidiennes</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <section class="section">
+                                <h3 class="section-title">Langues et compétences informatiques</h3>
+                                <div class="skills-container">
+                                    <div class="skill-category">
+                                        <h4>Langues</h4>
+                                        <div class="skill-item">
+                                            <div class="skill-name">
+                                                <span>Français</span>
+                                                <span class="skill-percentage">Natif</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <div class="skill-name">
+                                                <span>Anglais</span>
+                                                <span class="skill-percentage">Académique</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-description">
+                                            <p>Lecture d'articles financiers et économiques en anglais</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-category">
+                                        <h4>Bureautique</h4>
+                                        <div class="skill-item">
+                                            <div class="skill-name">
+                                                <span>Excel (fonctions financières, tableaux croisés dynamiques, macros
+                                                    VBA)</span>
+                                                <span class="skill-percentage">Avancé</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <div class="skill-name">
+                                                <span>Word</span>
+                                                <span class="skill-percentage">Avancé</span>
+                                            </div>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="section">
+                                <h3 class="section-title">Centres d'intérêt</h3>
+                                <div class="value-proposition">
+                                    <div class="value-item">
+                                        <h4>💹 Finance et économie</h4>
+                                        <p>Bourse, lecture d'analyses économiques, intérêt pour la fintech</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <h4>🏌️‍♂️ Loisirs</h4>
+                                        <p>Golf, voyages, cinéma, musique, technologies, géopolitique</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="mailto:mr.otraore@gmail.com" class="cta-button">Me contacter par email</a>
+                        <a href="tel:+33605605364" class="cta-button">M'appeler</a>
+                    </div>
+
+                    <footer>
+                        <p>&copy; 2025 Ousmane Traore - CV Finance et Ingénierie Financière</p>
+                    </footer>
+
+            </div>
+</body>
+
+</html>
